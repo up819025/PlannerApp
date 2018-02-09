@@ -1,5 +1,6 @@
 package com.example.inseption.plannerapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -22,6 +23,7 @@ public class Calendar extends AppCompatActivity
         setContentView(R.layout.activity_calendar);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -51,6 +53,8 @@ public class Calendar extends AppCompatActivity
             super.onBackPressed();
         }
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,7 +95,10 @@ public class Calendar extends AppCompatActivity
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
-
+            findViewById(R.id.logout_progress).setVisibility(View.VISIBLE);
+            findViewById(R.id.calendarView).setVisibility(View.GONE);
+            findViewById(R.id.nav_view).setVisibility(View.GONE);
+            startActivity(new Intent(Calendar.this, LoginScreen.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
